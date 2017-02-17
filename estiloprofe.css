@@ -1,0 +1,86 @@
+*{
+	 /*Sirve para añadir objetos hijos que ocupen casi todo el porcentaje interior. Sirve que si pones
+	 padding a un objeto interior,le quita espacio interior a esos objetos para que no sobresalgan 
+	 de la linea y se vayan al carajo. No actúa sobre el border y el margin.*/
+	box-sizing: border-box;                                                        
+}
+/* Si no pones un color al html coge el de background y se lía*/
+html{
+	background-color:#fff;
+}
+body{
+	min-width:320px;
+	max-width:960px;
+	background-color: #FCD5D5;
+	margin:0 auto;
+	padding:0px;
+}
+	body header{
+		background-color: #5736B0;
+		/* Sirve para cuadrar el tamaño del texto por si acaso
+		se sale del tamaño, que 
+		se tenga en cuenta*/
+		overflow:hidden; 
+		text-align:center;
+		/*Parte del flex-box*/
+		display:flex;
+		flex-direction:column;
+	}
+		body header img{
+			align-self:center;
+		}
+	body section{
+		background-color: #773623;
+		overflow:hidden;
+	}
+		body section div article{
+			background-color: #A133C9;
+			overflow:hidden;
+			margin:0.4em 0;
+			padding:0.5em;
+		}
+			body section div article footer{
+				background-color: #AACC44;
+				overflow:hidden;
+				color:#3355DD;
+				font-size:1.2em;
+			}
+
+
+@media all and (min-width:480px){
+	body header{
+		flex-direction: row;
+		
+		/* Con esto se reparte el espacio disponible entre los elementos del div*/
+		justify-content: space-betweeen;
+	}
+		body header div{
+			flex-grow:2;
+		}
+	body section div{
+		display:flex;
+		flex-wrap:wrap;
+		/* Reparte el espacio sobrante de los articles interiores equitativamente*/
+		justify-content:space-around;
+		
+		/* align-items:start hará que se los objetos ocupen verticalmente el tamaño que les asignas*/
+	}
+		body section div article{
+			width:48%;
+			border:.1em solid #423;
+			/*Repartir el contenido en la columna, yeah*/
+			display: flex;
+			flex-direction:column;
+		}
+		/* Con esto nos aseguramos que es el párrafo de en medio lo que crece, por lo que el título y el footer se extienden
+			hacia arriba y hacia abajo, haciendo que todo quede cool cool*/
+			body section div article p{
+				flex-grow:1;
+			}
+}
+
+@media all and (min-width:740px){
+	body section div article{
+		width:32%;
+	}
+}
