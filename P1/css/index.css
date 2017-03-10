@@ -11,7 +11,7 @@ body{
 	padding: 0;
 }
 	body>header{
-		/*background-color: #6FF255;*/
+		margin-top: 2em;
 		background-color: #F9FB68;
 		overflow: hidden;
 		text-align: center;
@@ -22,9 +22,10 @@ body{
 			align-self: center;
 		}
 section{
-	margin-top: 50px;
+	
 }
 	section>article{
+		background-color: #EFC384;
 		width:80%;
 		margin:1em auto;
 		padding : .5em;
@@ -50,6 +51,7 @@ label[for="ckb-menu"]{
 }
 nav[class="menu"]{
 	/*CORREGIR*/
+	top:0;
 	position: fixed;
 	width: 100%;
 	z-index: 1000;
