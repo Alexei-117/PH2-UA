@@ -1,5 +1,105 @@
-<!-- 	
-	Los formularios deben de contener foco en el campo de foco.
-	El campo que le pasas el ratón por encima, más de lo mismo.
-	Usar pseudo-elementos y pseudo-clases en el css.
--->
+/*MAIN*/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+*{
+	font-family: 'Roboto', sans-serif;
+}
+body{
+	min-width: 320px;
+	max-width: 960px;
+	background-color: #F1A553;
+	margin: 0 auto;
+	padding: 0;
+}
+	body>header{
+		/*background-color: #6FF255;*/
+		background-color: #F9FB68;
+		overflow: hidden;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+	}
+		header>img{
+			align-self: center;
+		}
+section{
+	margin-top: 50px;
+}
+	section>article{
+		width:80%;
+		margin:1em auto;
+		padding : .5em;
+		border:.1em solid #234;
+	}
+		section>article>h2{
+
+		}
+		section>article>footer{
+
+		}
+/*MENU-HAMBUGUESITA*/
+label[for="ckb-menu"]{
+	cursor: pointer;
+	font-size: 1.4em;
+	font-weight: bold;
+}
+#ckb-menu{
+	display: none;
+}
+#ckb-menu:checked+nav{
+	max-height: 10.6em;
+}
+nav[class="menu"]{
+	/*CORREGIR*/
+	position: fixed;
+	width: 100%;
+	z-index: 1000;
+	max-height: 2em;
+	overflow: hidden;
+	transition:max-height 1s;
+	background-color: #FF6A29;
+}
+	nav>ul{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}	
+		nav>ul>li{
+			text-align: center;
+		}
+		/*Hay que trabajar con el 'a'*/
+			nav>ul>li>a,label[for="ckb-menu"]{
+				display: block;
+				padding: .2em 0;
+				text-decoration: none;
+				color: black;
+				font-style: bold;
+			}
+			/*Mover para pantallas(?)*/
+			nav>ul>li>a:hover{
+				background-color: #F78D59;
+				color:#fff;
+			}
+@media all and (min-width:480px){
+	/*DES-HABMUGUESA*/
+	nav{
+		max-height: 2em;
+	}
+		nav>ul>li:first-of-type{
+			display: none;
+		}
+	nav>ul>li{
+		display: inline-block;
+		float:left;
+	}
+	nav>ul>li>a{
+			padding: .2em .5em;
+		}
+	nav>ul>li:not(:last-of-type){
+		border-right: .1em solid #234;
+	}
+	/*FLEX HEADER*/
+	body>header{
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
