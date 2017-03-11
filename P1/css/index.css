@@ -47,7 +47,7 @@ label[for="ckb-menu"]{
 	display: none;
 }
 #ckb-menu:checked+nav{
-	max-height: 10.6em;
+	max-height: 12.7em;
 }
 nav[class="menu"]{
 	/*CORREGIR*/
@@ -60,16 +60,16 @@ nav[class="menu"]{
 	transition:max-height 1s;
 	background-color: #FF6A29;
 }
-	nav>ul{
+	nav[class="menu"]>ul{
 		list-style: none;
 		margin: 0;
 		padding: 0;
 	}	
-		nav>ul>li{
+		nav[class="menu"]>ul>li{
 			text-align: center;
 		}
 		/*Hay que trabajar con el 'a'*/
-			nav>ul>li>a,label[for="ckb-menu"]{
+			nav[class="menu"]>ul>li>a,label[for="ckb-menu"]{
 				display: block;
 				padding: .2em 0;
 				text-decoration: none;
@@ -77,9 +77,29 @@ nav[class="menu"]{
 				font-style: bold;
 			}
 			/*Mover para pantallas(?)*/
-			nav>ul>li>a:hover{
+			nav[class="menu"]>ul>li>a:hover{
 				background-color: #F78D59;
 				color:#fff;
+			}
+footer>nav{
+	overflow:hidden;
+	background-color: #FF6A29;
+}
+	footer>nav>ul{
+		list-style: none;
+		margin:0;
+		padding: 0;
+	}
+		footer>nav>ul>li{
+			text-align: center;
+			display: inline-block;
+		}
+			footer>nav>ul>li>a{
+				display: block;
+				text-decoration: none;
+				color: black;
+				font-style: bold;
+				padding: .2em 0;
 			}
 @media all and (min-width:480px){
 	/*DES-HABMUGUESA*/
