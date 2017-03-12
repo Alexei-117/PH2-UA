@@ -22,7 +22,7 @@ form{
 		height: 100px;
 	}
 	form[class="entrada-form"]>span{
-		left: 10px;
+		left: 40px;
 		position: absolute;
 	}
 	form[class="buscar-form"]>label{
