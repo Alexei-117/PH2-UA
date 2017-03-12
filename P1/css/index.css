@@ -36,6 +36,10 @@ body{
 section{
 }
 	/*TOCADO POR alexei*/
+	section>hr{
+		width:80%;
+		border:2px solid grey;
+	}
 	section>article{
 		background-color: #EFC384;
 		width:80%;
@@ -139,6 +143,34 @@ section{
 			padding:0px;
 			margin:0px;
 		}
+		
+		/*Entrada*/
+		section>article>footer>a{
+			width:25%;
+			padding:0px;
+			margin:0px;
+			
+			text-decoration:none;
+			text-align:center;
+			color:black;
+		}
+		section>article>footer>a[class="respuesta"]{
+			width:25%;
+			padding:1em 0 0 0;
+			margin:0px;
+			
+			background-color:rgba(245,245,120,0.5);
+			border-radius:10px;
+			
+			text-decoration:none;
+			text-align:center;
+			color:black;
+		}
+		section>article>footer>a:hover{
+			background-color:rgba(20,20,20,0.5);
+			color:white;
+		}
+		
 	/*ZONA DE COMENTARIOS*/
 	section>article>h2{
 		text-align:center;
