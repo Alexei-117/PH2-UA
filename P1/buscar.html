@@ -1,7 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+	<meta charset="UTF-8">
+	<title>Buscar</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="fontello/css/fontello.css">
 </head>
 <body>
+<header>
+		<input type="checkbox" id="ckb-menu">
+		<nav class="menu">
+			<ul>
+				<li><label for="ckb-menu">&equiv;</label></li>
+				<li><a class="icon-home" href="index.html">Inicio</a></li>
+				<li><a class="icon-search" href="buscar.html">Buscar</a></li>
+				<li><a class="icon-user" href="registro.html">Registro</a></li>
+				<li><a class="icon-login-1" href="login.html">Iniciar sesion</a></li>
+				<li><a class="icon-logout" href="logout.html">Cerrar sesi&oacuten</a></li>
+				<li><a class="icon-book-open" href="nueva-entrada.html">Nueva entrada</a></li>
+			</ul>
+			</nav>
+	</header>
+	<h2 style="text-align: center;">Buscar</h2>
+	<form class="buscar-form" action="" method="POST">
+                     
+                    <label for="titulo-buscar">T&iacutetulo</label>
+                    <input type="text" id="titulo-buscar">
+                    <br>
+
+                    <label for="texto-buscar">Texto</label>
+                    <input type="text" id="texto-buscar">
+                    <br>
+
+                    <label for="autor-buscar">Autor</label>
+                    <input type="text" id="autor-buscar">
+                    <br>
+
+                    <label for="">Fecha:</label>
+                    <br>
+
+                    <label for="fechaEntrada-buscar">desde</label>
+                    <input type="date" id="fechaEntrada-buscar">
+                    <br>
+
+                    <label for="fechaSalida-buscar">hasta</label>
+                    <input type="date" id="fechaSalida-buscar">
+                    <br>
+
+                    <label  for="submit-buscar"></label>
+                    <input  type="submit" id="submit-buscar" value="Buscar">
+                </form>
 </body>
 </html>

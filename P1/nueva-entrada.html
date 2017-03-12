@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title>Nueva entrada</title>
@@ -9,17 +9,52 @@
 <body>
 	<header>
 		<input type="checkbox" id="ckb-menu">
-	<nav class="menu">
-		<ul>
-			<li><label for="ckb-menu">&equiv;</label></li>
-			<li><a class="icon-home" href="index.html">Inicio</a></li>
-			<li><a class="icon-search" href="buscar.html">Buscar</a></li>
-			<li><a class="icon-user" href="registro.html">Registro</a></li>
-			<li><a class="icon-login-1" href="login.html">Iniciar sesion</a></li>
-			<li><a class="icon-logout" href="logout.html">Cerrar sesi&oacuten</a></li>
-			<li><a class="icon-book-open" href="nueva-entrada.html">Nueva entrada</a></li>
-		</ul>
-		</nav>
+		<nav class="menu">
+			<ul>
+				<li><label for="ckb-menu">&equiv;</label></li>
+				<li><a class="icon-home" href="index.html">Inicio</a></li>
+				<li><a class="icon-search" href="buscar.html">Buscar</a></li>
+				<li><a class="icon-user" href="registro.html">Registro</a></li>
+				<li><a class="icon-login-1" href="login.html">Iniciar sesion</a></li>
+				<li><a class="icon-logout" href="logout.html">Cerrar sesi&oacuten</a></li>
+				<li><a class="icon-book-open" href="nueva-entrada.html">Nueva entrada</a></li>
+			</ul>
+			</nav>
 	</header>
+	<h2 style="text-align: center;">Nueva entrada</h2>
+	<form class="entrada-form" action="" method="POST">
+                     
+                    <label for="titulo-entrada">Titulo:</label>
+                    <br>
+                    <input id="titulo-entrada" type="text"  required maxlength="200" />
+                    <br>
+                    <label for="texto-entrada">Descripci&oacuten:</label>
+                    <br>
+                    <textarea name="" id="texto-entrada" cols="30" rows="10"
+                    required></textarea>
+                    <br>
+                    
+                    <label class="icon-picture" for="archivo-entrada">Selecionar imagen</label>
+                    
+                    <input id="archivo-entrada" type="file">
+                    <br>
+                    <span class="icon-cancel" style=""></span>
+ 					<img class="miniatura-entrada" src="img/bebop1.png" alt=""> 
+ 					<textarea name="" id="" cols="30" rows="10" required></textarea>
+ 					<br>
+ 					<label class="icon-picture" for="archivo-entrada">Selecionar imagen</label>
+                    <input id="archivo-entrada" type="file">
+                    <br>
+                    <span class="icon-cancel" style=""></span>
+ 					<img class="miniatura-entrada" src="img/bebop2.jpg" alt="">
+					<textarea name="" id="" cols="30" rows="10" required></textarea>
+					<br>
+					<label for="mas-entrada"></label>
+					<input id="mas-entrada" type="submit" value="Añadir imagen">
+					<br>
+					<label for="sumbit-entrada"></label>
+                    <input id="submit-entrada" type="submit" value="Confirmar">
+                </form>
+                <h2>Resultados</h2>
 </body>
 </html>
