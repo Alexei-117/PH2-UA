@@ -60,7 +60,7 @@ input[type="submit"]{
 	font-weight:bold;
     border: 0;
     padding: .5em;
-    margin-top: 5px;
+    
     margin: .3em;
 
     background-color: #FF6A29;
@@ -108,9 +108,9 @@ form>input:hover{
     	display: inline-block;
 	}
 	input[type="submit"]{
-		max-width: 300px;
+		
 	   display: inline-block;
-	   margin: 0;
+	  
 	}
 	img[class="miniatura-entrada"]{
    		max-width: 300px;
@@ -121,5 +121,12 @@ form>input:hover{
 		margin: 0 auto;
 		display: block;
 		position: absolute;
+	}
+	form[class="entrada-form"]>span{
+		left: 0;
+		position: relative;
+		display: inline-block;
+		margin:0 auto;
+		
 	}
 }
