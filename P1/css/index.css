@@ -127,7 +127,7 @@ section{
 			background-color:rgba(20,20,20,0.5);
 		}
 		/*TOCADO POR alexei*/
-		section>article>footer>time,p{
+		section>article>footer>time+p{
 			width:25%;
 			text-align:center;
 			padding:0px;
@@ -202,7 +202,7 @@ nav[class="menu"]{
 		padding: 0;
 	}	
 		nav[class="menu"]>ul>li{
-			margin:0px;
+			
 			text-align: center;
 		}
 		/*Hay que trabajar con el 'a'*/
@@ -301,7 +301,7 @@ form{
 	height:auto;
 	width:80%;
 }
-	form>fieldset>label,input,a{
+	form>fieldset>label+input+a{
 		display:block;
 		margin:.5em auto;
 	}
