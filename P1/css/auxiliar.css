@@ -68,3 +68,23 @@ input[type="submit"]:hover{
 	background-color: #F78D59;
 	color:#fff;
 }
+/*ADAPTACION ALEX*/
+/*Mover a media*/
+form>input:hover{
+		background-color:#F74403;
+		color:white;
+		transition:all 0.5s forwards;
+	}
+	form>input:focus{
+		background-color:#F78803;
+		color:white;
+	}
+	textarea:hover{
+		background-color:#F74403;
+		color:white;
+		transition:all 0.5s forwards;
+	}
+	textarea:focus{
+		background-color:#F78803;
+		color:white;
+	}
