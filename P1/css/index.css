@@ -127,7 +127,13 @@ section{
 			background-color:rgba(20,20,20,0.5);
 		}
 		/*TOCADO POR alexei*/
-		section>article>footer>time+p{
+		section>article>footer>time{
+			width:25%;
+			text-align:center;
+			padding:0px;
+			margin:0px;
+		}
+		section>article>footer>p{
 			width:25%;
 			text-align:center;
 			padding:0px;
@@ -301,12 +307,14 @@ form{
 	height:auto;
 	width:80%;
 }
-	form>fieldset>label+input+a{
+	form>fieldset>label{
 		display:block;
 		margin:.5em auto;
 	}
 	
 	form>fieldset>input{
+		display:block;
+		margin:.5em auto;
 		height:auto;
 		
 		border:2px solid #F78D59;
@@ -329,6 +337,8 @@ form{
 	}
 	
 	form>fieldset>a{
+		display:block;
+		margin:.5em auto;
 		font-size:1em;
 		width:6em;
 		
