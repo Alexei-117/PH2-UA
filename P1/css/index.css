@@ -231,7 +231,24 @@ section{
 			white-space:nowrap;
 			text-overflow:ellipsis;
 			height:1em;
-		}
+		}		
+/*Para acerca*/
+	section>article>section{
+		padding:.5em 0;
+		background-color:rgba(20,20,20,0.5);
+	}
+	section>article>hr{
+		width:80%;
+		border:2px solid grey;
+	}
+	section>article>section>p{
+		color:white;
+		
+		width:auto;
+		text-align:justify;
+		padding:0 1em;
+		margin:.5em 0;
+	}
 /*MENU-HAMBUGUESITA*/
 label[for="ckb-menu"]{
 	cursor: pointer;
