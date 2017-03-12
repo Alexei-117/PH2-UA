@@ -6,5 +6,8 @@
 .icon-book-open:before { content: '\e804'; } /* '' */
 .icon-search:before { content: '\e805'; } /* '' */
 .icon-user:before { content: '\e806'; } /* '' */
+.icon-picture:before { content: '\e807'; } /* '' */
+.icon-cancel:before { content: '\e808'; } /* '' */
+.icon-cancel-circled:before { content: '\e809'; } /* '' */
 .icon-login-1:before { content: '\f02c'; } /* '' */
 .icon-logout:before { content: '\f02d'; } /* '' */
