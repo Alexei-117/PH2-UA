@@ -35,7 +35,7 @@ form{
 		min-width: 180px;
 		max-width: 320px;
 		width: 40%;
-		float: left;
+		
 		display: block;
 		padding: .2em;
 		left:10px;
@@ -60,7 +60,9 @@ input[type="submit"]{
 	font-weight:bold;
     border: 0;
     padding: .5em;
+    margin-top: 5px;
     margin: .3em;
+
     background-color: #FF6A29;
 }
 /*Mover al media*/
@@ -88,3 +90,36 @@ form>input:hover{
 		background-color:#F78803;
 		color:white;
 	}
+@media all and (min-width:480px){
+	/*FORMULARIO JULIAN*/
+	form{
+		justify-content: center;
+		text-align: center;
+	}
+	form[class="buscar-form"]>label{
+		margin: 0 auto;
+		padding:0 auto;
+		display: inline-block;
+    	float: none;
+	}
+	form[class="buscar-form"]>input:not[type="submit"]{
+		margin: 0 auto;
+		padding:0 auto;
+    	display: inline-block;
+	}
+	input[type="submit"]{
+		max-width: 300px;
+	   display: inline-block;
+	   margin: 0;
+	}
+	img[class="miniatura-entrada"]{
+   		max-width: 300px;
+   		margin: 0 auto;
+   		display: block;
+	}
+	form[class="entrada-form"]>span{
+		margin: 0 auto;
+		display: block;
+		position: absolute;
+	}
+}

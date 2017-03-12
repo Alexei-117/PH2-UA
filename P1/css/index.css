@@ -423,6 +423,7 @@ form>fieldset{
 	/*TOCADO POR alexei*/
 	nav[class="menu"]{
 		max-height: 2em;
+		max-width: 960px;
 	}
 		nav[class="menu"]>ul>li:first-of-type{
 			display: none;
@@ -430,6 +431,7 @@ form>fieldset{
 	nav>ul>li{
 		display: inline-block;
 		float:left;
+		padding: .2em;
 	}
 	nav>ul>li>a{
 			padding: .2em .5em;
@@ -439,10 +441,11 @@ form>fieldset{
 		border-right: .1em solid #234;
 	}
 	/*FLEX HEADER*/
-	body>header{
+	/*body>header{
 		flex-direction: row;
 		justify-content: space-between;
-	}
+	}*/
+
 }
 
 /*TOCADO POR alexei*/
