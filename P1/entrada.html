@@ -1,7 +1,88 @@
 <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+	<meta charset="UTF-8">
+	<title>Portada de Img-in</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="fontello/css/fontello.css">
+
 </head>
 <body>
+	<header>
+		<img style="width:90px;height:120px"src="http://vignette4.wikia.nocookie.net/es.finalfantasy/images/8/86/Cactilio_FFVIII.png/revision/latest?cb=20100405041644" alt="logo">
+		<div>
+			<h1>Img-in</h1>
+			<p>Sube tus im&aacute;genes a Img-in y compártelas con el resto de fot&oacute;grafos del mundillo. ¡Recibir&aacute;s comentarios
+			y cr&iacute;ticas constructivas respecto a tus fotos!</p>
+		</div>
+	</header>
+	<input type="checkbox" id="ckb-menu">
+	<nav class="menu">
+		<ul>
+			<li><label for="ckb-menu">&equiv;</label></li>
+			<li><a class="icon-home" href="index.html">Inicio</a></li>
+			<li><a class="icon-search" href="buscar.html">Buscar</a></li>
+			<li><a class="icon-user" href="registro.html">Registro</a></li>
+			<li><a class="icon-login-1" href="login.html">Iniciar sesion</a></li>
+			<li><a class="icon-logout" href="logout.html">Cerrar sesi&oacuten</a></li>
+			<li><a class="icon-book-open" href="nueva-entrada.html">Nueva entrada</a></li>
+		</ul>
+	</nav>
+	<section>
+		<article>
+			<h3>Vacaciones en florencia</h3>
+			Este ejemplar sumamente interesante nos lleva a las antípodas australianas que contenían
+			una variante de chimpancés osos bastante impresionante.
+			
+			<address>Pérez Mora</address>
+			<footer>
+				<time datetime="17-02-2017">Fecha <br> 17/02/2017</time>	
+				<a href="#galeria">Fotos<br> 4</a>
+				<a href="#comentarios">Comentarios <br> 41</a>
+			</footer>
+		</article>
+	</section>
+	<section>
+		<h2 id="galeria">Galería</h2>
+		<figure>
+			<img src="img/foto1.jpg">
+			<p>Apreciemos la figura de este macaco oso disfrutando de un paseo en la india</p>
+		</figure>
+		<figure>
+			<img src="img/foto1.jpg">
+			<p>Apreciemos la figura de este macaco oso disfrutando de un paseo en la india</p>
+		</figure>
+		<figure>
+			<img src="img/foto1.jpg">
+			<p>Apreciemos la figura de este macaco oso disfrutando de un paseo en la india</p>
+		</figure>
+	</section>
+	<section>
+		<h2 id="comentar">Generar comentario</h2>
+		<form>
+			<fieldset>
+				<label for="name">T&iacute;tulo</label>
+				<input id="name" type="text" required></input>
+			
+				<label for="name">Comentario</label>
+				<input id="name" type="textarea" pattern="/^{1,20}$/" required></input>
+				
+			</fieldset>
+		</form>
+	</section>
+	<section>
+		<h2 id="comentarios">Comentarios</h2>
+		<article>
+			<header>
+				<a href="entrada.html">Vacaciones en florencia</a>
+				<p>Esta foto me encanta, me recuerda a mis vacaciones en bali con mi mujer. Menudo paraíso.</p>
+			</header>
+			<footer>
+				<time datetime="17-02-2017T12:32:42">A las <br>12:32:42, 17/02/2017</time>	
+				<address>Autor <br> Pérez Mora</address>
+			</footer>
+		</article>
+	</section>
 </body>
 </html>
