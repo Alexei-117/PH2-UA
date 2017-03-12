@@ -170,7 +170,28 @@ section{
 			background-color:rgba(20,20,20,0.5);
 			color:white;
 		}
+	section>figure{
+		width:80%;
+		height:auto;
+		margin:1em auto;
+		padding:0;
+		border:.1em solid #234;
+		border-radius:5px;
 		
+		display:flex;
+		flex-direction:column;
+		
+		text-align:justify;
+	}
+		section>figure>img{
+			width:100%;
+			height:auto;
+			margin:0;
+			padding:0;
+		}
+		section>figure>p{
+			padding:0 .5em;
+		}
 	/*ZONA DE COMENTARIOS*/
 	section>article>h2{
 		text-align:center;
