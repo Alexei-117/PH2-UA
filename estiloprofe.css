@@ -1,10 +1,44 @@
+nav>ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+	nav>ul>li{
+		display:inline-block;
+		padding:0.2em 0.5em;
+	}
+		nav>ul>li:not(last-of-type){
+			border-right:0.1em solod #234;
+		}
+
+section h2{
+	color: #a00;
+}
+section>h2{
+	font-style:italic;
+}
+section>h2+article{
+	background-color: #cE2;
+}
+section>h2~article{
+	border:0.1em solid #234;
+	width:60%;
+	margin:0 auto;
+}
+
+
+/* /*Apunte sobre las fuentes*/
+@import url('link a google');
+
+/*
 *{
 	 /*Sirve para añadir objetos hijos que ocupen casi todo el porcentaje interior. Sirve que si pones
 	 padding a un objeto interior,le quita espacio interior a esos objetos para que no sobresalgan 
-	 de la linea y se vayan al carajo. No actúa sobre el border y el margin.*/
-	box-sizing: border-box;                                                        
+	 de la linea y se vayan al carajo. No actúa sobre el border y el margin.
+	box-sizing: border-box;                                                   */     
 }
 /* Si no pones un color al html coge el de background y se lía*/
+/*
 html{
 	background-color:#fff;
 }
@@ -19,10 +53,10 @@ body{
 		background-color: #5736B0;
 		/* Sirve para cuadrar el tamaño del texto por si acaso
 		se sale del tamaño, que 
-		se tenga en cuenta*/
+		se tenga en cuenta*//*
 		overflow:hidden; 
 		text-align:center;
-		/*Parte del flex-box*/
+		/*Parte del flex-box*//*
 		display:flex;
 		flex-direction:column;
 	}
@@ -51,7 +85,7 @@ body{
 	body header{
 		flex-direction: row;
 		
-		/* Con esto se reparte el espacio disponible entre los elementos del div*/
+		/* Con esto se reparte el espacio disponible entre los elementos del div*//*
 		justify-content: space-betweeen;
 	}
 		body header div{
@@ -60,20 +94,20 @@ body{
 	body section div{
 		display:flex;
 		flex-wrap:wrap;
-		/* Reparte el espacio sobrante de los articles interiores equitativamente*/
+		/* Reparte el espacio sobrante de los articles interiores equitativamente*//*
 		justify-content:space-around;
 		
-		/* align-items:start hará que se los objetos ocupen verticalmente el tamaño que les asignas*/
+		/* align-items:start hará que se los objetos ocupen verticalmente el tamaño que les asignas*//*
 	}
 		body section div article{
 			width:48%;
 			border:.1em solid #423;
-			/*Repartir el contenido en la columna, yeah*/
+			/*Repartir el contenido en la columna, yeah*//*
 			display: flex;
 			flex-direction:column;
 		}
 		/* Con esto nos aseguramos que es el párrafo de en medio lo que crece, por lo que el título y el footer se extienden
-			hacia arriba y hacia abajo, haciendo que todo quede cool cool*/
+			hacia arriba y hacia abajo, haciendo que todo quede cool cool*//*
 			body section div article p{
 				flex-grow:1;
 			}
@@ -83,4 +117,4 @@ body{
 	body section div article{
 		width:32%;
 	}
-}
+} */
