@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Portada de Img-in</title>
+	<title>Inicio de sesión de Img-in</title>
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="fontello/css/fontello.css">
 
@@ -28,21 +28,20 @@
 			<li><a class="icon-book-open" href="nueva-entrada.html">Nueva entrada</a></li>
 		</ul>
 	</nav>
-	
 	<form >
 		<fieldset>
-		<legend>Inicio de sesión</legend>
-		
-		<label for="user">Usuario</label>
-		<input id="user" type="text" pattern="" autofocus required></input>
-		
-		<label for="pass">Contrase&ntilde;a</label>
-		<input id="pass" type="password" autofocus required></input>
-		
-		
-		<input name="submit" type="Submit" value="Loguearse">
-		
-		<a href="index.html">Cancelar</a>
+			<legend>Inicio de sesión</legend>
+			
+			<label for="user">Usuario</label>
+			<input id="user" type="text" pattern="/^[^0-9]{1}[\S*][a-zA-Z0-9]+$/" autofocus required></input>
+			
+			<label for="pass">Contrase&ntilde;a</label>
+			<input id="pass" type="password" required></input>
+			
+			
+			<input name="submit" type="Submit" value="Loguearse">
+			
+			<a href="index.html">Cancelar</a>
 		</fieldset>
 	</form>
 </body>

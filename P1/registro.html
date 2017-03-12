@@ -1,7 +1,60 @@
 <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
+	<meta charset="UTF-8">
+	<title>Registro de Img-in</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="fontello/css/fontello.css">
+
 </head>
 <body>
+	<header>
+		<img style="width:90px;height:120px"src="http://vignette4.wikia.nocookie.net/es.finalfantasy/images/8/86/Cactilio_FFVIII.png/revision/latest?cb=20100405041644" alt="logo">
+		<div>
+			<h1>Img-in</h1>
+			<p>Sube tus im&aacute;genes a Img-in y compártelas con el resto de fot&oacute;grafos del mundillo. ¡Recibir&aacute;s comentarios
+			y cr&iacute;ticas constructivas respecto a tus fotos!</p>
+		</div>
+	</header>
+	<input type="checkbox" id="ckb-menu">
+	<nav class="menu">
+		<ul>
+			<li><label for="ckb-menu">&equiv;</label></li>
+			<li><a class="icon-home" href="index.html">Inicio</a></li>
+			<li><a class="icon-search" href="buscar.html">Buscar</a></li>
+			<li><a class="icon-user" href="registro.html">Registro</a></li>
+			<li><a class="icon-login-1" href="login.html">Iniciar sesion</a></li>
+			<li><a class="icon-logout" href="logout.html">Cerrar sesi&oacuten</a></li>
+			<li><a class="icon-book-open" href="nueva-entrada.html">Nueva entrada</a></li>
+		</ul>
+	</nav>
+	
+
+	<form >
+		<fieldset>
+			<legend>Inicio de sesión</legend>
+			
+			<label for="user">Login</label>
+			<input id="user" type="text" pattern="/^[^0-9]{1}[a-zA-Z0-9\S*]{1,19}+$/" autofocus required></input>
+			
+			<label for="name">Nombre</label>
+			<input id="name" type="text" pattern="/^[^0-9]{1}[\S*][a-zA-Z0-9]+$/" required></input>
+			
+			
+			<label for="pass">Contrase&ntilde;a</label>
+			<input id="pass" type="password" pattern="" required></input>
+			
+            <label for="pass2">Repetir contrase&ntilde;a</label>
+			<input id="pass2" type="password" required></input>
+			
+			<label for="email">E-mail</label>
+			<input id="email" type="email" required></input>
+			
+			<input name="submit" type="Submit" value="Registrarse">
+			
+			<a href="index.html">Cancelar</a>
+		</fieldset>
+	</form>
 </body>
 </html>

@@ -24,10 +24,13 @@ body{
 			
 		header>div{
 			padding:0.4em;
+			
 		}
 			header>div>h1{
-				width:100%;
 				text-align: center;
+			}
+			header>div>p{
+				width:100%;
 			}
 /*Artículos principales*/
 section{
@@ -199,6 +202,7 @@ nav[class="menu"]{
 		padding: 0;
 	}	
 		nav[class="menu"]>ul>li{
+			margin:0px;
 			text-align: center;
 		}
 		/*Hay que trabajar con el 'a'*/
@@ -214,6 +218,7 @@ nav[class="menu"]{
 				background-color: #F78D59;
 				color:#fff;
 			}
+			
 /*PAGINACIÓN*/
 nav[class="pag"]{
 	width: 100%;
@@ -290,18 +295,61 @@ footer>nav{
 
 /*FORMULARIOS*/
 form{
-	display:flex;
-	flex-direction:column;
-	justify-content:center;
+	text-align:center;
 	
-	
+	margin: 1em auto;
 	height:auto;
-	width:100%;
+	width:80%;
 }
-	form>label,input,a{
+	form>fieldset>label,input,a{
 		display:block;
+		margin:.5em auto;
 	}
-
+	
+	form>fieldset>input{
+		height:auto;
+		
+		border:2px solid #F78D59;
+		background-color:#F9FB68;
+		border-radius:5px;
+		
+		font-weight:600;
+		font-size:1em;
+		transition:all 0.3s forwards;
+	}
+	
+	form>fieldset>input:hover{
+		background-color:#F74403;
+		color:white;
+		transition:all 0.5s forwards;
+	}
+	form>fieldset>input:focus{
+		background-color:#F78803;
+		color:white;
+	}
+	
+	form>fieldset>a{
+		font-size:1em;
+		width:6em;
+		
+		border:2px solid #F78D59;
+		background-color:#F9FB68;
+		border-radius:5px;
+		
+		text-decoration:none;
+		color:black;
+		
+		font-weight:600;
+	}
+	form>fieldset>a:hover{
+		background-color:#F74403;
+		color:white;
+		transition:all 0.5s forwards;
+	}
+	form>fieldset>a:focus{
+		background-color:#F78803;
+		color:white;
+	}
 form>fieldset{
 	border:3px solid black;
 	font-weight:700;
