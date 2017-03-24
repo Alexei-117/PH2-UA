@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Inicio de sesión de Img-in</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="fontello/css/fontello.css">
+
+</head>
+<body>
+	<header>
+		<img style="width:90px;height:120px" src="http://vignette4.wikia.nocookie.net/es.finalfantasy/images/8/86/Cactilio_FFVIII.png/revision/latest?cb=20100405041644" alt="logo">
+		<div>
+			<h1>Img-in</h1>
+			<p>Sube tus im&aacute;genes a Img-in y compártelas con el resto de fot&oacute;grafos del mundillo. ¡Recibir&aacute;s comentarios
+			y cr&iacute;ticas constructivas respecto a tus fotos!</p>
+		</div>
+	</header>
+	<input type="checkbox" id="ckb-menu">
+	<nav class="menu">
+		<ul>
+			<li><label for="ckb-menu">&equiv;</label></li>
+			<li><a class="icon-home" href="index.html">Inicio</a></li>
+			<li><a class="icon-search" href="buscar.html">Buscar</a></li>
+			<li><a class="icon-user" href="registro.html">Registro</a></li>
+			<li><a class="icon-login-1" href="login.html">Iniciar sesion</a></li>
+			<li><a class="icon-logout" href="logout.html">Cerrar sesi&oacute;n</a></li>
+			<li><a class="icon-book-open" href="nueva-entrada.html">Nueva entrada</a></li>
+		</ul>
+	</nav>
+	<form >
+		<fieldset>
+			<legend>Inicio de sesión</legend>
+			
+			<label for="user">Usuario</label>
+			<input id="user" type="text" pattern="^[^0-9]{1}[\S*][a-zA-Z0-9]+$" autofocus required>
+			
+			<label for="pass">Contrase&ntilde;a</label>
+			<input id="pass" type="password" required>
+			
+			
+			<input name="submit" type="Submit" value="Loguearse">
+			
+			<a href="index.html">Cancelar</a>
+		</fieldset>
+	</form>
+	<footer>
+		<nav>
+			<ul>
+				<li><time datetime="2017-02-21">&copy; 2017</time></li>
+				<li></li>
+				<li><a href="acerca.html">Saber m&aacute;s</a></li>
+			</ul>
+		</nav>
+	</footer>
+</body>
+</html>
