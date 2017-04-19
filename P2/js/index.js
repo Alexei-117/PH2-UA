@@ -1,17 +1,23 @@
 
 function loadPag(pag,num,obj){
-	let idEntrada = frm.id.value;
-	console.log("pero que me dices: "+idEntrada);
 	
 	let xhr = new XMLHttpRequest(),
-		url = "un link";
+		url = "./rest/entrada/?pag="+pag+"&lpag="+num;
 		
-	xhr.open('GET',url + idEntrada,true);
+	xhr.open('GET',url,true);
+	xhr.send();
+	
 	xhr.onreadystatechange = function(){
 			if(xhr.readyState == 4){
 				if(xhr.status == 200){
-					let datosEntrada = xhr.responseText;
-					frm.parentNode.querySelector('article>p').innerHTML = datosEntrada;
+					let datosJSON = JSON.parse(xhr.responseText);
+					let i = 0;
+					console.log(xhr.responseText);
+					for( i = 0; i<datosJSON["TOTAL_COINCIDENCIAS"]; i++){
+						console.log(datosJSON["FILAS"][i]);
+					}
+					
+					obj.innerHTML = "la magia";
 				}
 			}
 	}
@@ -22,6 +28,7 @@ function loadPag(pag,num,obj){
 function loadGallery(obj){
 	loadPag(1,6,obj);
 }
+
 function loadComments(){
 }
 

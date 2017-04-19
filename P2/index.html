@@ -4,8 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Portada de Img-in</title>
 	<link rel="stylesheet" href="css/index.css">
-	<link rel="stylesheet" href="fontello/css/fontello.css">
-
+	<link rel="stylesheet" href="fontello/css/fontello.css">	
 </head>
 <body>
 	<header>
@@ -29,7 +28,9 @@
 	</nav>
 	</header>
 	
-	<section onload="loadGallery(this);return false;" >
+	<section onclick="loadGallery(this);return false;" >
+		<div style="width:100px;height:200px;">
+		</div>
 		<!--<article>
 			<img src="img/foto1.jpg" alt="entrada uno" >
 			<p>
@@ -49,7 +50,7 @@
 	</section>
 	<section>
 		<h2>Últimos 10 comentarios</h2>
-		<article>
+		<!--<article>
 			<header>
 				<a href="entrada.html">Vacaciones en florencia</a>
 				<p>Esta foto me encanta, me recuerda a mis vacaciones en bali con mi mujer. Menudo paraíso.</p>
@@ -58,7 +59,7 @@
 				<time datetime="2017-02-17T12:32:42">A las <br>12:32:42, 17/02/2017</time>	
 				<address>Autor <br> Pérez Mora</address>
 			</footer>
-		</article>
+		</article>-->
 	</section>
 	<nav class="pag">
 		<ul>
@@ -81,5 +82,7 @@
 			</ul>
 		</nav>
 	</footer>
+	<script src= "js/index.js"> </script>
 </body>
+
 </html>
