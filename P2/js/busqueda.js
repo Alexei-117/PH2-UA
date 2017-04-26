@@ -1,7 +1,4 @@
-var actualPage = 0;
-
-//Funciones generales de apoyo, como cargar página
-function loadPag(pag,num,obj){
+function loadPagBusqueda(pag,num,obj){
 	actualPage=pag;
 	let xhr = new XMLHttpRequest(),
 		url = "./rest/entrada/?u=6&?pag="+pag+"&lpag="+num,
@@ -42,61 +39,12 @@ function loadPag(pag,num,obj){
 			}
 	}
 	return false;
-	
 };
 
-//Funciones onload de la página
-function loadGallery(){
-	loadPag(actualPage,6,"indexLastImages");
-	return false;
-};
-
-function loadLast10Comments(){
-		
-	let xhr = new XMLHttpRequest(),
-		url = "./rest/comentario/?u=10",
-		finalTextComments = "<h2>Lo sentimos, no hay &uacute;ltimos comentarios en este momento.</h2>";
-		
-	xhr.open('GET',url,true);
-	xhr.send();
-	xhr.onreadystatechange = function(){
-		if(xhr.readyState == 4){
-			if(xhr.status == 200){
-				let datosJSON = JSON.parse(xhr.responseText);
-				let i = 0;
-				console.log(xhr.responseText);
-				finalTextComments = "<h2>&Uacute;ltimos comentarios</h2>";
-				for( i = 0; i<datosJSON["FILAS"].length; i++){
-					finalTextComments +=
-					"<article>"+
-						"<header>"+
-							"<a href='entrada.html"+datosJSON["FILAS"][i]["id_entrada"]+
-								"'>"+datosJSON["FILAS"][i]["nombre_entrada"]+"</a>"+
-								"<h4>"+datosJSON["FILAS"][i]["titulo"]+"</h4>"+
-							"<p>"+datosJSON["FILAS"][i]["texto"]+"</p>"+
-						"</header>"+
-						"<footer>"+
-							"<time datetime='"+datosJSON["FILAS"][i]["fecha"]+"'>Fecha <br> "+datosJSON["FILAS"][i]["fecha"]+"</time>"+
-							"<address>Autor <br>"+datosJSON["FILAS"][i]["login"]+"</address>"+
-						"</footer>"+
-					"</article>";
-					document.getElementById("indexLastComments").innerHTML = finalTextComments;
-				}
-				
-				
-			}else{
-				document.getElementById("indexLastComments").innerHTML = finalTextComments;
-				onsole.log("ERROR: "+xhr.responseText);
-			}
-		}
-	}
-	return false;
-};
-
-function loadPaginationIndex(){
-	let bar =  document.querySelector("nav[class=pag]");
+function loadPaginationBuscar(){
+	let bar =  document.getElementById("pagination");
 	let postperpag = 6;
-	//Conseguir el dia de mañana
+	//Conseguir el dia de ma�ana
 	let tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
 	let dd = tomorrow.getDate();
 	let mm = tomorrow.getMonth()+1; //January is 0!
@@ -110,7 +58,7 @@ function loadPaginationIndex(){
 	} 
 	tomorrow = yyyy+"-"+mm+"-"+dd;
 	
-	//Para poner pedir la última página
+	//Para poner pedir la �ltima p�gina
 	let xhr = new XMLHttpRequest(),
 		url = "./rest/entrada/?ff="+tomorrow,
 		totalPosts = 0;
@@ -165,29 +113,8 @@ function loadPaginationIndex(){
 	}
 	return false;
 };
-/* Funciones que se hacen automáticamente*/
-function setFooterTime(){
-	let setting =  document.querySelector("footer>nav>ul>li>time");
-	//Conseguir el dia de mañana
-	let day = new Date();
-	let dd = day.getDate();
-	let mm = day.getMonth()+1; //January is 0!
 
-	let yyyy = day.getFullYear();
-	if(dd<10){
-		dd='0'+dd;
-	} 
-	if(mm<10){
-		mm='0'+mm;
-	} 
-	day = yyyy+"-"+mm+"-"+dd;
+//Funciones automaticas en lanzar la pagina
+function loadBuscar(){
 	
-	setting.setAttribute("datetime",day );
-	setting.innerHTML ="&copy; "+ yyyy;
-}
-function loadIndex(){
-	loadGallery();
-	loadLast10Comments();
-	loadPaginationIndex();
-	setFooterTime();
-}
+}	

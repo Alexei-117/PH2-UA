@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="fontello/css/fontello.css">
      <link rel="stylesheet" href="css/auxiliar.css">
 </head>
-<body>
+<body onload="loadBuscar();return false;">
      <header>
           <img style="width:90px;height:120px" src="http://vignette4.wikia.nocookie.net/es.finalfantasy/images/8/86/Cactilio_FFVIII.png/revision/latest?cb=20100405041644" alt="logo">
           <div>
@@ -30,38 +30,35 @@
 	</header>
 	<h2 style="text-align: center;">Buscar</h2>
 	<form class="buscar-form"  method="POST">
-                     
-                    <label for="titulo-buscar">T&iacute;tulo</label>
-                    <input type="text" id="titulo-buscar">
+		<label for="titulo-buscar">T&iacute;tulo</label>
+		<input type="text" id="titulo-buscar">
 
-                    <br>
+		<br>
 
-                    <label for="texto-buscar">Texto</label>
-                    <input type="text" id="texto-buscar">
-                    <br>
+		<label for="texto-buscar">Texto</label>
+		<input type="text" id="texto-buscar">
+		<br>
 
-                    <label for="autor-buscar">Autor</label>
-                    <input type="text" id="autor-buscar">
-                    <br>
+		<label for="autor-buscar">Autor</label>
+		<input type="text" id="autor-buscar">
+		<br>
 
-                    <label >Fecha:</label>
-                    <br>
+		<label >Fecha:</label>
+		<br>
 
-                    <label for="fechaEntrada-buscar">desde</label>
-                    <input type="date" id="fechaEntrada-buscar">
-                    <br>
+		<label for="fechaEntrada-buscar">desde</label>
+		<input type="date" id="fechaEntrada-buscar">
+		<br>
 
-                    <label for="fechaSalida-buscar">hasta</label>
-                    <input type="date" id="fechaSalida-buscar">
-                    <br>
-
-                    
-                    <input  type="submit" id="submit-buscar" value="Buscar">
-                    
-                </form>
-                <h2 style="text-align: center;">Resultados</h2>
-                <section>
-          <article>
+		<label for="fechaSalida-buscar">hasta</label>
+		<input type="date" id="fechaSalida-buscar">
+		<br>
+		
+		<input  type="submit" id="submit-buscar" value="Buscar">
+    </form>
+    <h2 style="text-align: center;">Resultados</h2>
+    <section>
+          <!--<article>
                <img src="img/foto1.jpg" alt="entrada uno" >
                <p>
                Este ejemplar sumamente interesante nos lleva a las antípodas australianas que contenían
@@ -76,32 +73,7 @@
                     <p>Fotos<br> 4</p>
                     <p>Comentarios <br> 41</p>
                </footer>
-          </article>
-          <article>
-               <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, similique.</h1>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, similique, eos! Reiciendis repudiandae aspernatur, modi possimus! Sit est sapiente eaque quidem ea porro iure quae quis odit voluptatibus, asperiores distinctio. Quae laboriosam dignissimos ad illo. Labore nostrum laboriosam eos! Voluptatem.</p>
-               <footer>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</footer>
-          </article>
-          <article>
-               <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, similique.</h1>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, similique, eos! Reiciendis repudiandae aspernatur, modi possimus! Sit est sapiente eaque quidem ea porro iure quae quis odit voluptatibus, asperiores distinctio. Quae laboriosam dignissimos ad illo. Labore nostrum laboriosam eos! Voluptatem.</p>
-               <footer>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</footer>
-          </article>
-          <article>
-               <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, similique.</h1>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, similique, eos! Reiciendis repudiandae aspernatur, modi possimus! Sit est sapiente eaque quidem ea porro iure quae quis odit voluptatibus, asperiores distinctio. Quae laboriosam dignissimos ad illo. Labore nostrum laboriosam eos! Voluptatem.</p>
-               <footer>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</footer>
-          </article>
-          <article>
-               <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, similique.</h1>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, similique, eos! Reiciendis repudiandae aspernatur, modi possimus! Sit est sapiente eaque quidem ea porro iure quae quis odit voluptatibus, asperiores distinctio. Quae laboriosam dignissimos ad illo. Labore nostrum laboriosam eos! Voluptatem.</p>
-               <footer>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</footer>
-          </article>
-          <article>
-               <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, similique.</h1>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, similique, eos! Reiciendis repudiandae aspernatur, modi possimus! Sit est sapiente eaque quidem ea porro iure quae quis odit voluptatibus, asperiores distinctio. Quae laboriosam dignissimos ad illo. Labore nostrum laboriosam eos! Voluptatem.</p>
-               <footer>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</footer>
-          </article>
+          </article>-->
      </section>
      <footer>
           <nav>
@@ -112,5 +84,8 @@
                </ul>
           </nav>
      </footer>
+	 
+	 <script src="js/busqueda.js" type="text/javascript" >
+	 </script>
 </body>
 </html>
