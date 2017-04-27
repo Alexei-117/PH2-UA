@@ -436,7 +436,7 @@ form>fieldset{
 }
 /*MENSAJE EMERGENTE*/
 .capa2{
-    background-color: rgba(255,255,255,.8);
+    background-color: rgba(255,255,255,.5);
     position: absolute;
     top: 0;
     left: 0;

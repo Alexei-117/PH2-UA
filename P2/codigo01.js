@@ -27,16 +27,20 @@ function hacerLogin(frm){
 			sessionStorage.setItem('status', 'true');
 
 			//Mensaje correcto
-		    html+= '<h2>Login correcto</h2>';
-		    html+= '<p>Bienvenido a Img-in</p>';
-		    html+= '<a href="index.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';
+		    html += '<h2>Login correcto</h2>';
+		    html += '<p>Bienvenido a Img-in</p>';
+		    html += '<p>Su ultimo acceso fue:</p>';
+		    html +=	'<p>';
+		    html += v.ultimo_acceso;
+		    html += '</p>';
+		    html += '<a href="index.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';
 		    capa1.innerHTML = html;
 		}
 		else{
 			//Mensaje incorrecto
-			html+= '<h2>Login incorrecto</h2>';
-		    html+= '<p>Vuelva a intentarlo</p>';
-		    html+= '<a href="login.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';		}
+			html += '<h2>Login incorrecto</h2>';
+		    html += '<p>Vuelva a intentarlo</p>';
+		    html += '<a href="login.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';		}
 			capa1.innerHTML = html;
 	};
 	capa1.innerHTML = html;
@@ -191,7 +195,7 @@ function mostrarMensajeRegistroCorrecto(){
 
     html += '<h2>Registro completado</h2>';
     html += '<p>Bienvenido a Img-in</p>';
-    html += '<a href="index.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';
+    html += '<a href="login.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';
     
     capa1.innerHTML = html;
     capa2.classList.add('capa2'); 
