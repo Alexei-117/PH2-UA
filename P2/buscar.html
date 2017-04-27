@@ -29,7 +29,7 @@
 			</nav>
 	</header>
 	<h2 style="text-align: center;">Buscar</h2>
-	<form class="buscar-form"  method="POST">
+	<form onsubmit="loadPagBusqueda(0,6,this);return false;" class="buscar-form"  method="POST">
 		<label for="titulo-buscar">T&iacute;tulo</label>
 		<input type="text" id="titulo-buscar">
 
@@ -57,7 +57,7 @@
 		<input  type="submit" id="submit-buscar" value="Buscar">
     </form>
     <h2 style="text-align: center;">Resultados</h2>
-    <section>
+    <section id="muestraBusqueda">
           <!--<article>
                <img src="img/foto1.jpg" alt="entrada uno" >
                <p>
@@ -74,7 +74,13 @@
                     <p>Comentarios <br> 41</p>
                </footer>
           </article>-->
-     </section>
+    </section>
+	 
+	<!-- Navegación por búsqueda -->
+	<nav id="pagination" class="pag">
+		
+	</nav>
+	
      <footer>
           <nav>
                <ul>

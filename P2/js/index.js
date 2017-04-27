@@ -157,7 +157,7 @@ function loadPaginationIndex(){
 			"<ul>"+
 				"<li onclick='loadPag("+(actualPage-1)+",postperpag,'indexLastImages')'>Anterior</li>"+
 				"<li onclick='loadPag(0,postperpag,'indexLastImages')'>Primera</li>"+
-				"<li onclick='loadPag(2,postperpag,'indexLastImages')'>Actual ("+(actualPage+1)+")</li>"+
+				"<li onclick='loadPag("+(actualPage)+",postperpag,'indexLastImages')'>Actual ("+(actualPage+1)+")</li>"+
 				"<li onclick='loadPag("+(totalPags-1)+",postperpag,'indexLastImages')'>&Uacute;ltima</li>"+
 				"<li onclick='loadPag("+(actualPage+1)+",postperpag,'indexLastImages')'>Next</li>"+
 			"</ul>";
@@ -185,6 +185,7 @@ function setFooterTime(){
 	setting.setAttribute("datetime",day );
 	setting.innerHTML ="&copy; "+ yyyy;
 }
+
 function loadIndex(){
 	loadGallery();
 	loadLast10Comments();
