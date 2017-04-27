@@ -435,17 +435,18 @@ form>fieldset{
 	font-weight:700;
 }
 /*MENSAJE EMERGENTE*/
-.capa-fondo{
+.capa2{
     background-color: rgba(255,255,255,.8);
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
+
     z-index: 1;
     height: 3000px;
 }
-.capa-frente{
+.capa1{
     width: 20em;
     border: .2em solid #234;
     padding: 1em;
@@ -457,13 +458,13 @@ form>fieldset{
     background-color: #F9FB68;
     z-index: 1;
 }
-.capa-frente>h2{
+.capa1>h2{
     margin: 0;
     padding: .2em;
     background-color: #FF6A29;
     color: #fff;
 }
-.capa-frente>a>button{
+.capa1>a>button{
 	padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -474,11 +475,11 @@ form>fieldset{
     border-radius: 4px;
     border: 2px solid #FF6A29;
 }
-.capa-frente>a>button{
+.capa1>a>button{
     transition-duration: 0.4s;
 }
 
-.capa-frente>a>button:hover{
+.capa1>a>button:hover{
     background-color: #FF6A29; ; 
     color: white;
     cursor: pointer;

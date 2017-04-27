@@ -1,6 +1,9 @@
 //El formulario de login llama a esta funcion
 //la cual almacena en el sessionStorage los datos
 // y muestra un mensaje 
+//IMPORTANTE AÑADIR EL TIEMPO DE LA ULTIMA
+//CONEXION, ESTA EN LA BASE DE DATOS 
+//CON UNA PETICION GET ES EASY!!!!!!!!!!!!!!!!!!!!
 function hacerLogin(frm){
 	//Peticion
 	let xhr = new XMLHttpRequest(), 
@@ -8,12 +11,12 @@ function hacerLogin(frm){
 		fd	= new FormData(frm);
 
 	//Mostrar login
-	let capa_fondo = document.createElement('div'),
-	capa_frente = document.createElement('article'),
+	let capa2 = document.createElement('div'),
+	capa1 = document.createElement('article'),
 
     html = '';
 
-    capa_fondo.appendChild(capa_frente);
+    capa2.appendChild(capa1);
 
 	xhr.open('POST', url, true);
 	xhr.onload = function(){
@@ -26,24 +29,24 @@ function hacerLogin(frm){
 			//Mensaje correcto
 		    html+= '<h2>Login correcto</h2>';
 		    html+= '<p>Bienvenido a Img-in</p>';
-		    html+= '<a href="login.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';
-		    capa_frente.innerHTML = html;
+		    html+= '<a href="index.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';
+		    capa1.innerHTML = html;
 		}
 		else{
 			//Mensaje incorrecto
 			html+= '<h2>Login incorrecto</h2>';
 		    html+= '<p>Vuelva a intentarlo</p>';
 		    html+= '<a href="login.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';		}
-			capa_frente.innerHTML = html;
+			capa1.innerHTML = html;
 	};
-	capa_frente.innerHTML = html;
+	capa1.innerHTML = html;
 
 	xhr.send(fd);
 
-    capa_fondo.classList.add('capa-fondo'); 
-    capa_frente.classList.add('capa-frente');
+    capa2.classList.add('capa2'); 
+    capa1.classList.add('capa1');
 
-    document.body.appendChild(capa_fondo);
+    document.body.appendChild(capa2);
 	return false;
 }
 //Fin funcion
@@ -55,11 +58,11 @@ function hacerRegistro(frm){
 		url1 = 'http://localhost/P2/rest/login/';
 
 	
-	var login_value = frm.parentNode.querySelector('input[name=login]').value;				
-	var nombre_value = frm.parentNode.querySelector('input[name=nombre]').value;
-	var pwd_value = frm.parentNode.querySelector('input[name=pwd]').value;
-	var pwd2_value = frm.parentNode.querySelector('input[name=pwd2]').value;
-	var email_value = frm.parentNode.querySelector('input[name=email]').value;
+	var login_value = frm.parentNode.querySelector('input[id=login]').value;				
+	var nombre_value = frm.parentNode.querySelector('input[id=nombre]').value;
+	var pass_value = frm.parentNode.querySelector('input[id=pass]').value;
+	var pass2_value = frm.parentNode.querySelector('input[id=pass2]').value;
+	var email_value = frm.parentNode.querySelector('input[id=email]').value;
 
 	let login_disponible = false;
 
@@ -77,51 +80,42 @@ function hacerRegistro(frm){
 		if(v1.DISPONIBLE == 'true' && login_value!=''){
 			login_disponible = true;
 		}
-
-		if((pwd_value != pwd2_value) && (login_disponible == false)){
-
-				//Mensajes de login ya usado y contraseñas no iguales
-				document.getElementById("contrasenyaRepetida").innerHTML = "Repite la misma contraseña";
-
-				document.getElementById("loginRepetido").innerHTML = "Login ya está en uso, introduce otro";
+		//Comprueba el login y las contrasenyas
+		if((pass_value != pass2_value) && (login_disponible == false)){
+				document.getElementById("error1").innerHTML = "Ya existe un usuario con el mismo login";
+				document.getElementById("error2").innerHTML = "Las contraseñas no coinciden";
 
 				error_login = true;
 				error_contrasenya = true;
 
 		}else{
-			if(pwd_value != pwd2_value){
-				//Mensaje de contraseñas no iguales
-				document.getElementById("contrasenyaRepetida").innerHTML = "Repite la misma contraseña";
+			//Contrasenyas distintas
+			if(pass_value != pass2_value){
+				document.getElementById("error2").innerHTML = "Las contraseñas no coinciden";
 				error_contrasenya = true;
 			}else{
+				//Login utilizado
 				if(login_disponible == false){
-					//Mensaje de login ya usado
-					document.getElementById("loginRepetido").innerHTML = "Login ya está en uso, introduce otro";
+					document.getElementById("error1").innerHTML = "Ya existe un usuario con el mismo login";
 					error_login = true;
 				}
 			}
 		}
-
+		//Eliminacion de mensajes
 		if(error_login == false){
-			// Para eliminar el error del login en el html
-			document.getElementById("loginRepetido").innerHTML = "";
+			document.getElementById("error1").innerHTML = "";
 		}
-
 		if(error_contrasenya == false){
-			// Para eliminar el error de contraseñas no iguales en el html
-			document.getElementById("contrasenyaRepetida").innerHTML = "";
+			document.getElementById("error2").innerHTML = "";
 		}
 
 	}
 
 	xhr1.send();
 
-
-
 	let xhr2 = new XMLHttpRequest(),
-		url2 = 'http://localhost/PHII/practica2/rest/usuario/',
+		url2 = 'http://localhost/P2/rest/usuario/',
 		fd = new FormData();
-
 
 	xhr2.open('POST', url2, true);
 
@@ -132,13 +126,12 @@ function hacerRegistro(frm){
 		if(v2.RESULTADO != 'error'){
 			mostrarMensajeRegistroCorrecto();
 		}
-
 	};
 
 	fd.append('login', login_value);
 	fd.append('nombre', nombre_value);
-	fd.append('pwd', pwd_value);
-	fd.append('pwd2', pwd2_value);
+	fd.append('pwd', pass_value);
+	fd.append('pwd2', pass2_value);
 	fd.append('email', email_value);
 
 	xhr2.send(fd);
@@ -190,25 +183,21 @@ function enviarFoto(btn){
 // Función para mostrar el mensaje emergente cuando se ha 
 // podido registrar un usuario.
 function mostrarMensajeRegistroCorrecto(){
-    let capa_fondo = document.createElement('div'),
-        capa_frente = document.createElement('article'),
-        //texto = document.querySelector('body>input[name="mensaje"]').value,
-
+    let capa2 = document.createElement('div'),
+        capa1 = document.createElement('article'),
         html = '';
 
-    capa_fondo.appendChild(capa_frente);    
+    capa2.appendChild(capa1);    
 
     html += '<h2>Registro completado</h2>';
-    html += '<p>Bienvenido a North & East</p>';
-    html += '<a href="login.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';
+    html += '<p>Bienvenido a Img-in</p>';
+    html += '<a href="index.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';
     
-    //this.parentNode.parentNode.remove();
+    capa1.innerHTML = html;
+    capa2.classList.add('capa2'); 
+    capa1.classList.add('capa1');
 
-    capa_frente.innerHTML = html;
-    capa_fondo.classList.add('capa-fondo'); 
-    capa_frente.classList.add('capa-frente');
-
-    document.body.appendChild(capa_fondo);
+    document.body.appendChild(capa2);
 }
 //Fin funcion 
 
@@ -243,7 +232,29 @@ function mostrarLogin(){
 //Funcion para mostrar el formulario de registro 
 //en registro.html
 function mostrarRegistro(){
+	let html = '';
 
+	html += '<fieldset>';
+	html += '<legend>Inicio de sesión</legend>';
+	html += '<label for="login">Login</label>';
+	html += '<input id="login" name="login" type="text"  autofocus >';
+	html += '<p style="color:red" id="error1"></p>';
+	html += '<label for="nombre">Nombre</label>';
+	html += '<input id="nombre" name="nombre" type="text" >';
+	html += '<label for="pass">Contrase&ntilde;a</label>';
+	html += '<input id="pass" name="pass" type="password" >';
+	html += '<p style="color:red" id="error2"></p>';
+	html += '<label for="pass2">Repetir contrase&ntilde;a</label>';
+	html += '<input id="pass2" name="pass2" type="password" >';
+	html += '<label for="email">E-mail</label>';
+	html += '<input id="email" name="email" type="email" >';
+	html += '<input name="submit" type="Submit" value="Registrarse">';
+	html += '<a href="index.html">Cancelar</a>';
+	html += '</fieldset>';
+
+	document.getElementById('registerForm').innerHTML = html;
+
+	return false;
 }
 //Fin funcion
 

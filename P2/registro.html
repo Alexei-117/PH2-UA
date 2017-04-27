@@ -5,7 +5,17 @@
 	<title>Registro de Img-in</title>
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="fontello/css/fontello.css">
-
+	<script src="codigo01.js"></script>
+	<script>
+	window.onload = function ejecutar(){
+		if(comprobarLogin()){
+			volverIndex();
+		}
+		else{
+			mostrarRegistro();
+		}
+		};
+	</script>
 </head>
 <body>
 	<header>
@@ -30,30 +40,33 @@
 	</nav>
 	
 
-	<form >
-		<fieldset>
+	<form id="registerForm" onsubmit="return hacerRegistro(this);">
+		<!--<fieldset>
 			<legend>Inicio de sesión</legend>
-			
-			<label for="user">Login</label>
-			<input id="user" type="text" pattern="^[^0-9]{1}[a-zA-Z0-9\S*]{1,19}$" autofocus required>
-			
-			<label for="name">Nombre</label>
-			<input id="name" type="text" pattern="^[^0-9]{1}[\S*][a-zA-Z0-9]+$" required>
-			
+			<label for="login">Login</label>
+			<input id="login" name="login" type="text"  autofocus >
+
+			<p style="color:red" id="error1"></p>
+
+			<label for="nombre">Nombre</label>
+			<input id="nombre" name="nombre" type="text" >
 			
 			<label for="pass">Contrase&ntilde;a</label>
-			<input id="pass" type="password" pattern="" required>
+			<input id="pass" name="pass" type="password" >
 			
+			<p style="color:red" id="error2"></p>
+
             <label for="pass2">Repetir contrase&ntilde;a</label>
-			<input id="pass2" type="password" required>
+			<input id="pass2" name="pass2" type="password" >
 			
 			<label for="email">E-mail</label>
-			<input id="email" type="email" required>
+			<input id="email" name="email" type="email" >
 			
 			<input name="submit" type="Submit" value="Registrarse">
 			
 			<a href="index.html">Cancelar</a>
-		</fieldset>
+		</fieldset>-->
+		<!-- pattern="^[^0-9]{1}[a-zA-Z0-9\S*]{1,19}$"-->
 	</form>
 	<footer>
 		<nav>
