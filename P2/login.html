@@ -5,8 +5,19 @@
 	<title>Inicio de sesión de Img-in</title>
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="fontello/css/fontello.css">
-
+	<script src="codigo01.js"></script>
+	<script>
+	window.onload = function ejecutar(){
+		if(comprobarLogin()){
+			volverIndex();
+		}
+		else{
+			mostrarLogin();
+		}
+		};
+	</script>
 </head>
+
 <body>
 	<header>
 		<img style="width:90px;height:120px" src="http://vignette4.wikia.nocookie.net/es.finalfantasy/images/8/86/Cactilio_FFVIII.png/revision/latest?cb=20100405041644" alt="logo">
@@ -18,32 +29,35 @@
 	</header>
 	<input type="checkbox" id="ckb-menu">
 	<nav class="menu">
-		<ul>
+		<ul id="menuPrincipal">
 			<li><label for="ckb-menu">&equiv;</label></li>
 			<li><a class="icon-home" href="index.html">Inicio</a></li>
 			<li><a class="icon-search" href="buscar.html">Buscar</a></li>
 			<li><a class="icon-user" href="registro.html">Registro</a></li>
-			<li><a class="icon-login-1" href="login.html">Iniciar sesion</a></li>
-			<li><a class="icon-logout" href="logout.html">Cerrar sesi&oacute;n</a></li>
+			<li id="signin"><a class="icon-login-1" href="login.html">Iniciar sesion</a></li>
+			<li id="signout"><a onclick="cerrarSesion();" class="icon-logout" href="">Cerrar sesi&oacute;n</a></li>
 			<li><a class="icon-book-open" href="nueva-entrada.html">Nueva entrada</a></li>
 		</ul>
 	</nav>
-	<form >
-		<fieldset>
+	
+	<form id="loginForm" onsubmit="return hacerLogin(this);">
+		<!--<fieldset>
 			<legend>Inicio de sesión</legend>
 			
-			<label for="user">Usuario</label>
-			<input id="user" type="text" pattern="^[^0-9]{1}[\S*][a-zA-Z0-9]+$" autofocus required>
+			<label for="login">Usuario</label>
+			<input name="login" id="login" type="text" pattern="^[^0-9]{1}[\S*][a-zA-Z0-9]+$" autofocus required>
 			
-			<label for="pass">Contrase&ntilde;a</label>
-			<input id="pass" type="password" required>
-			
-			
-			<input name="submit" type="Submit" value="Loguearse">
+			<label for="pwd">Contrase&ntilde;a</label>
+			<input id="pwd" name="pwd" type="password" required>			
+			<input name="submit" type="submit" value="Loguearse">
 			
 			<a href="index.html">Cancelar</a>
-		</fieldset>
+		</fieldset>-->
 	</form>
+	
+	
+	<!--<p id="alerta" style="word-break:break-all"></p>-->
+
 	<footer>
 		<nav>
 			<ul>

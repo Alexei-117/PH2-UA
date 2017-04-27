@@ -434,7 +434,55 @@ form>fieldset{
 	border:3px solid black;
 	font-weight:700;
 }
-			
+/*MENSAJE EMERGENTE*/
+.capa-fondo{
+    background-color: rgba(255,255,255,.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    height: 3000px;
+}
+.capa-frente{
+    width: 20em;
+    border: .2em solid #234;
+    padding: 1em;
+    position: fixed;
+    top: 5em;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: #F9FB68;
+    z-index: 1;
+}
+.capa-frente>h2{
+    margin: 0;
+    padding: .2em;
+    background-color: #FF6A29;
+    color: #fff;
+}
+.capa-frente>a>button{
+	padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color: #F9FB68;
+    color: black;
+    border-radius: 4px;
+    border: 2px solid #FF6A29;
+}
+.capa-frente>a>button{
+    transition-duration: 0.4s;
+}
+
+.capa-frente>a>button:hover{
+    background-color: #FF6A29; ; 
+    color: white;
+    cursor: pointer;
+}
 @media all and (min-width:480px){
 	/*DES-HABMUGUESA*/
 	/*TOCADO POR alexei*/
