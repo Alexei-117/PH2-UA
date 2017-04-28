@@ -1,30 +1,48 @@
+//Cosas por hacer
+/*
+	- Corregir fallos en el diseño
+	- Corregir que sale el login y no el nombre del usuario
+	- Acabar la parte de julian de nueva entrada
+	- Escribir el acerca
+*/
+
+
+//Variable que muestra la pagina actual
 var actualPage = 0;
 
 //Funciones generales de apoyo, como cargar página
 function loadPag(pag,num,obj){
+	//La pagina actual pasa a ser la solicitada
 	actualPage=pag;
+	
+	//inicializando texto base, url de la petición y la petición XML
 	let xhr = new XMLHttpRequest(),
 		url = "./rest/entrada/?u=6&?pag="+pag+"&lpag="+num,
 		finalText = "<h2>Lo sentimos, no se ha podido atender la petici&oacute;n en este momento.</h2>";
-		
+	
+	//Enviar petición GET
 	xhr.open('GET',url,true);
 	xhr.send();
 	xhr.onreadystatechange = function(){
 			if(xhr.readyState == 4){
 				if(xhr.status == 200){
+					//Parsear los datos JSON recibidos
 					let datosJSON = JSON.parse(xhr.responseText);
 					let i = 0;
-					console.log(xhr.responseText);
+					
+					//Vaciar el texto que irá en la sección
 					finalText = "";
+					
+					//guardar el mensaje formateado
 					for( i = 0; i<datosJSON["TOTAL_COINCIDENCIAS"]; i++){
 						finalText += 
 						"<article>"+
 							"<img src=img/"+datosJSON["FILAS"][i]["fichero"]+" alt="+datosJSON["FILAS"][i]["nombre"]+" >"+
 							"<p>"+datosJSON["FILAS"][i]["descripcion_foto"]+
-								"<a href='entrada.html"+datosJSON["FILAS"][i]["id"]+"'>Ver m&aacute;s </a>"+
+								"<a href='entrada.html?id="+datosJSON["FILAS"][i]["id"]+"'>Ver m&aacute;s </a>"+
 							"</p>"+
 								
-							"<a href='entrada.html"+datosJSON["FILAS"][i]["id"]+"'>"+datosJSON["FILAS"][i]["nombre"]+"</a>"+
+							"<a href='entrada.html?id="+datosJSON["FILAS"][i]["id"]+"'>"+datosJSON["FILAS"][i]["nombre"]+"</a>"+
 							"<address>"+datosJSON["FILAS"][i]["login"]+"</address>"+
 							"<footer>"+
 								"<time datetime='"+datosJSON["FILAS"][i]["fecha"]+"'>Fecha <br> "+datosJSON["FILAS"][i]["fecha"]+"</time>"+	
@@ -36,6 +54,7 @@ function loadPag(pag,num,obj){
 					
 					document.getElementById(obj).innerHTML = finalText;
 				}else{
+					//Mostrar el mensaje de error y por consola lo sucedido en caso de no realizarse la petición
 					document.getElementById(obj).innerHTML = finalText;
 					console.log("ERROR: "+xhr.responseText);
 				}
@@ -70,7 +89,7 @@ function loadLast10Comments(){
 					finalTextComments +=
 					"<article>"+
 						"<header>"+
-							"<a href='entrada.html"+datosJSON["FILAS"][i]["id_entrada"]+
+							"<a href='entrada.html?id="+datosJSON["FILAS"][i]["id_entrada"]+
 								"'>"+datosJSON["FILAS"][i]["nombre_entrada"]+"</a>"+
 								"<h4>"+datosJSON["FILAS"][i]["titulo"]+"</h4>"+
 							"<p>"+datosJSON["FILAS"][i]["texto"]+"</p>"+
@@ -97,7 +116,7 @@ function loadPaginationIndex(){
 	let bar =  document.querySelector("nav[class=pag]");
 	let postperpag = 6;
 	//Conseguir el dia de mañana
-	let tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+	let tomorrow = new Date(new Date().getDate() +1);
 	let dd = tomorrow.getDate();
 	let mm = tomorrow.getMonth()+1; //January is 0!
 
@@ -186,9 +205,20 @@ function setFooterTime(){
 	setting.innerHTML ="&copy; "+ yyyy;
 }
 
+function comprobarLogin(){
+	if(sessionStorage.getItem('status')){
+		return true;
+	}
+	else{
+		
+		return false;
+	}
+}
+
 function loadIndex(){
 	loadGallery();
 	loadLast10Comments();
 	loadPaginationIndex();
+	comprobarLogin();
 	setFooterTime();
 }

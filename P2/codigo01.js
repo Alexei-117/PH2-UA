@@ -269,7 +269,6 @@ function mostrarRegistro(){
 //EN EL ELSE METES QUE INICIAR SESION APAREZCA
 function comprobarLogin(){
 	if(sessionStorage.getItem('status')){
-
 		return true;
 	}
 	else{
