@@ -1,4 +1,28 @@
 /*FORMULARIOS JULIAN*/
+div[class="inputAlert"]{
+	float:left;
+	width:90%;
+	text-align:center;
+	border:3px solid red;
+	padding:3px;
+	margin:3px;
+	
+	font-size:2vw;
+	color:red;
+}
+div[class="inputAlertNo"]{
+	display:none;
+	
+	float:right;
+	text-align:center;
+	border:3px solid blue;
+	padding:3px;
+	margin:3px;
+	
+	font-size:2vw;
+	color:red;
+}
+
 form{
 	border-radius: 5px;
 	font-size: 1.2em;
@@ -11,6 +35,51 @@ form{
 	form>label{
 		float: left;
 	}
+	form>div{
+		width:auto;
+		height:100%;
+		margin:5px;
+		padding:5px;
+		
+		border:3px dashed black;
+	}
+	form>div[class="errors"]{
+		display:none;
+		
+		width:auto;
+		height:100%;
+		margin:5px;
+		padding:5px;
+		
+		border:3px dashed red;
+		background-color:rgba(125,125,125,0.3);
+	}
+	
+		form>div>label{
+			float: left;
+		}
+		form>div>button{
+			float:left;
+			
+			display:block;
+			margin:.5em auto;
+			height:auto;
+			
+			border:2px solid #F78D59;
+			background-color:#F9FB68;
+			border-radius:5px;
+			
+			font-weight:600;
+			font-size:1em;
+			transition:all 0.3s forwards;
+		}
+		form>div>button:hover{
+			background-color:#F74403;
+			color:white;
+			transition:all 0.5s forwards;
+		}
+		
+	
 	form[class="entrada-form"]>input:first-of-type{
 		width: 95%;
 		max-width: 400px;
@@ -18,7 +87,7 @@ form{
 	}
 	form[class="entrada-form"]>textarea{
 		width:95%;
-		max-width: 400px;
+		max-width: 300px;
 		height: 100px;
 	}
 	form[class="entrada-form"]>span{
@@ -113,7 +182,7 @@ form>input:hover{
 	  
 	}
 	img[class="miniatura-entrada"]{
-   		max-width: 300px;
+   		max-width: 31%;
    		margin: 0 auto;
    		display: block;
 	}

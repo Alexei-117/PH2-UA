@@ -40,6 +40,7 @@ section{
 		width:80%;
 		border:2px solid grey;
 	}
+
 	section>article{
 		background-color: #EFC384;
 		width:80%;
@@ -233,15 +234,21 @@ section{
 			height:1em;
 		}		
 /*Para acerca*/
-	section>article>section{
-		padding:.5em 0;
-		background-color:rgba(20,20,20,0.5);
+	section>article>h3{
+		margin-top:10px;
+		padding-left:0.8vw;
+		color:#222;
+		font-size:2vw;
 	}
 	section>article>hr{
-		width:80%;
+		width:90%;
 		border:2px solid grey;
 	}
-	section>article>section>p{
+	section>article[class="autores"]{
+		font-size:1.2vw;
+		line-height:1.5vw;
+		padding:.5em 0;
+		background-color:rgba(20,20,20,0.5);
 		color:white;
 		
 		width:auto;
@@ -434,17 +441,33 @@ form>fieldset{
 	border:3px solid black;
 	font-weight:700;
 }
+
+form>div>span{
+	height:50px;
+	line-height:50px;
+	width:50px;
+	border-radius:50%;
+	border:3px solid red;
+	color:red;
+}
+
+form>div>span:hover{
+	border:1px solid #A00;
+	color:#A00;
+}
+
+
 /*MENSAJE EMERGENTE*/
 .capa2{
     background-color: rgba(255,255,255,.5);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
 
     z-index: 1;
-    height: 3000px;
+    height: 100%;
 }
 .capa1{
     width: 20em;
@@ -464,7 +487,7 @@ form>fieldset{
     background-color: #FF6A29;
     color: #fff;
 }
-.capa1>a>button{
+.capa1>a{
 	padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -475,11 +498,11 @@ form>fieldset{
     border-radius: 4px;
     border: 2px solid #FF6A29;
 }
-.capa1>a>button{
+.capa1>a{
     transition-duration: 0.4s;
 }
 
-.capa1>a>button:hover{
+.capa1>a:hover{
     background-color: #FF6A29; ; 
     color: white;
     cursor: pointer;
@@ -511,7 +534,6 @@ form>fieldset{
 		flex-direction: row;
 		justify-content: space-between;
 	}*/
-
 }
 
 /*TOCADO POR alexei*/

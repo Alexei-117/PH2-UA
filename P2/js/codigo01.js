@@ -1,13 +1,12 @@
+
+
 //El formulario de login llama a esta funcion
 //la cual almacena en el sessionStorage los datos
-// y muestra un mensaje 
-//IMPORTANTE AÑADIR EL TIEMPO DE LA ULTIMA
-//CONEXION, ESTA EN LA BASE DE DATOS 
-//CON UNA PETICION GET ES EASY!!!!!!!!!!!!!!!!!!!!
+// y muestra un mensaje
 function hacerLogin(frm){
 	//Peticion
 	let xhr = new XMLHttpRequest(), 
-		url = 'http://localhost/P2/rest/login/',
+		url = './rest/login/',
 		fd	= new FormData(frm);
 
 	//Mostrar login
@@ -22,7 +21,7 @@ function hacerLogin(frm){
 	xhr.onload = function(){
 		console.log(xhr.responseText);
 		let v = JSON.parse(xhr.responseText);
-		if(v.RESULTADO == 'ok'){
+		if(v["RESULTADO"] == 'ok'){
 			sessionStorage['du'] = xhr.responseText;
 			sessionStorage.setItem('status', 'true');
 
@@ -31,16 +30,16 @@ function hacerLogin(frm){
 		    html += '<p>Bienvenido a Img-in</p>';
 		    html += '<p>Su ultimo acceso fue:</p>';
 		    html +=	'<p>';
-		    html += v.ultimo_acceso;
+		    html += v["ultimo_acceso"];
 		    html += '</p>';
-		    html += '<a href="index.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';
+		    html += '<a href="index.html" onclick="this.parentNode.parentNode.remove();">Cerrar</a>';
 		    capa1.innerHTML = html;
 		}
 		else{
 			//Mensaje incorrecto
 			html += '<h2>Login incorrecto</h2>';
 		    html += '<p>Vuelva a intentarlo</p>';
-		    html += '<a href="login.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';		}
+		    html += '<a href="login.html" onclick="this.parentNode.parentNode.remove();">Cerrar</a>';		}
 			capa1.innerHTML = html;
 	};
 	capa1.innerHTML = html;
@@ -59,7 +58,7 @@ function hacerLogin(frm){
 function hacerRegistro(frm){
 
 	let xhr1 = new XMLHttpRequest(),
-		url1 = 'http://localhost/P2/rest/login/';
+		url1 = './rest/login/';
 
 	
 	var login_value = frm.parentNode.querySelector('input[id=login]').value;				
@@ -78,9 +77,9 @@ function hacerRegistro(frm){
 		console.log(xhr1.responseText);
 		let v1 = JSON.parse(xhr1.responseText);
 
-		let error_login = false;
 		let error_contrasenya = false;
-
+		let error_login = false;
+		
 		if(v1.DISPONIBLE == 'true' && login_value!=''){
 			login_disponible = true;
 		}
@@ -118,7 +117,7 @@ function hacerRegistro(frm){
 	xhr1.send();
 
 	let xhr2 = new XMLHttpRequest(),
-		url2 = 'http://localhost/P2/rest/usuario/',
+		url2 = './rest/usuario/',
 		fd = new FormData();
 
 	xhr2.open('POST', url2, true);
@@ -143,7 +142,26 @@ function hacerRegistro(frm){
 	return false;
 }
 //Fin funcion
+function checkLibre(){
+	let xhr1 = new XMLHttpRequest(),
+		url1 = './rest/login/';
+		
+	var login_value = document.querySelector('input[id=login]').value;
+	
+	let login_disponible = false;
 
+	url1 += login_value;
+	xhr1.open('GET', url1, true);
+
+	xhr1.onload = function(){
+		if(v1.DISPONIBLE == 'true'){
+			login_disponible = true;
+		}
+	}
+	if(!login_disponible){
+		document.getElementById("error1").innerHTML = "Ya existe un usuario con el mismo login";
+	}
+}
 //Funcion para libear el sessionStorage y cerrar sesion
 function cerrarSesion(){
 	sessionStorage.clear();
@@ -151,38 +169,6 @@ function cerrarSesion(){
 	return false;
 }
 //Fin funcion 
-
-//Funcion para nueva entrada
-//SIN TESTEAR, MIRAR GITHUB EL ZIP nueva_entrada.zip
-function mostrarFoto(inp){
-	let fr = new FileReader();
-
-	fr.onload = function(){
-		inp.parentNode.querySelector('img').src = fr.result;
-		inp.parentNode.querySelector('img').alt = inp.files[0].name;
-	};
-	fr.readAsDataURL(inp.files[0]);
-}
-function enviarFoto(btn){
-	let xhr = new XMLHttpRequest(),
-		url = 'http://localhost/ph2/rest/foto/',
-		fd  = new FormData(),
-		du  = JSON.parse(sessionStorage['du']);
-
-	fd.append('login', du.login);
-	fd.append('id_entrada',1);
-	fd.append('texto', btn.parentNode.querySelector('textarea').value);
-	fd.append('foto', btn.parentNode.querySelector('[type="file"]').files[0]);
-
-	xhr.open('POST', url, true);
-	xhr.onload = function(){
-		console.log(xhr.responseText);
-	};
-
-	xhr.sendRequestHeader('Authorization', du.clave);
-	xhr.send(fd);
-}
-//Fin funcion
 
 // Función para mostrar el mensaje emergente cuando se ha 
 // podido registrar un usuario.
@@ -195,7 +181,7 @@ function mostrarMensajeRegistroCorrecto(){
 
     html += '<h2>Registro completado</h2>';
     html += '<p>Bienvenido a Img-in</p>';
-    html += '<a href="login.html"><button onclick="this.parentNode.parentNode.remove();">Cerrar</button></a>';
+    html += '<a href="login.html" onclick="this.parentNode.parentNode.remove();">Cerrar</a>';
     
     capa1.innerHTML = html;
     capa2.classList.add('capa2'); 
@@ -246,7 +232,7 @@ function mostrarRegistro(){
 	html += '<label for="nombre">Nombre</label>';
 	html += '<input id="nombre" name="nombre" type="text" >';
 	html += '<label for="pass">Contrase&ntilde;a</label>';
-	html += '<input id="pass" name="pass" type="password" >';
+	html += '<input id="pass" name="pass" type="password"  pattern="^[^0-9]{1}[\S*][a-zA-Z0-9]+$">';
 	html += '<p style="color:red" id="error2"></p>';
 	html += '<label for="pass2">Repetir contrase&ntilde;a</label>';
 	html += '<input id="pass2" name="pass2" type="password" >';
@@ -262,11 +248,74 @@ function mostrarRegistro(){
 }
 //Fin funcion
 
+//Carga del menú en función del logueo
+function loadMenu(){
+	let header = document.querySelector("header");
+	if(comprobarLogin()){
+		let html = 
+		"<input type='checkbox' id='ckb-menu'>"+
+		"<nav class='menu'>"+
+			"<ul  id='menuPrincipal'>"+
+				"<li><label for='ckb-menu'>&equiv;</label></li>"+
+				"<li><a class='icon-home' href='index.html'>Inicio</a></li>"+
+				"<li><a class='icon-search' href='buscar.html'>Buscar</a></li>"+
+				"<li id='signout'><a onclick='cerrarSesion();' class='icon-logout' href=''>Cerrar sesi&oacute;n</a></li>"+
+				"<li><a class='icon-book-open' href='nueva-entrada.html'>Nueva entrada</a></li>"+
+			"</ul>"+
+		"</nav>";
+		
+		header.innerHTML = header.innerHTML + html;
+		
+	}else{
+		let html = 
+		"<input type='checkbox' id='ckb-menu'>"+
+		"<nav class='menu'>"+
+			"<ul  id='menuPrincipal'>"+
+				"<li><label for='ckb-menu'>&equiv;</label></li>"+
+				"<li><a class='icon-home' href='index.html'>Inicio</a></li>"+
+				"<li><a class='icon-search' href='buscar.html'>Buscar</a></li>"+
+				"<li><a class='icon-user' href='registro.html'>Registro</a></li>"+
+				"<li id='signin'><a class='icon-login-1' href='login.html'>Iniciar sesi&oacute;n</a></li>"+
+			"</ul>"+
+		"</nav>";
+		
+		header.innerHTML = header.innerHTML + html;
+	}
+}
+
+//Fin de función
+
+/* Funciones que se hacen automáticamente*/
+function setFooterTime(){
+	let setting =  document.createElement("footer");
+	
+	//Conseguir el dia de mañana
+	let day = new Date();
+	let dd = day.getDate();
+	let mm = day.getMonth()+1; //January is 0!
+
+	let yyyy = day.getFullYear();
+	if(dd<10){
+		dd='0'+dd;
+	} 
+	if(mm<10){
+		mm='0'+mm;
+	} 
+	day = yyyy+"-"+mm+"-"+dd;
+	
+	setting.innerHTML=
+		"<nav>"+
+			"<ul>"+
+				"<li><time datetime="+day+">&copy; "+yyyy+"</time></li>"+
+				"<li></li>"+
+				"<li><a href='acerca.html'>Saber m&aacute;s</a></li>"+
+			"</ul>"+
+		"</nav>";
+	document.body.appendChild(setting);
+}
+
+
 //Funcion comprobar login
-//IMPORTANTE, AÑADIR ESTE METODO EN EL HEAD DE CADA HTML
-//FALTA POR AÑADIR LAS OPCIONES AL MENU, ES DECIR
-//EN EL PRIMER IF METES QUE LA OPCION CERRAR SESION APAREZCA
-//EN EL ELSE METES QUE INICIAR SESION APAREZCA
 function comprobarLogin(){
 	if(sessionStorage.getItem('status')){
 		return true;

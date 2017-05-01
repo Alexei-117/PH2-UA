@@ -5,9 +5,11 @@
 	<title>Inicio de sesión de Img-in</title>
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="fontello/css/fontello.css">
-	<script src="codigo01.js"></script>
+
 	<script>
 	window.onload = function ejecutar(){
+		loadMenu();
+		setFooterTime();
 		if(comprobarLogin()){
 			volverIndex();
 		}
@@ -27,18 +29,6 @@
 			y cr&iacute;ticas constructivas respecto a tus fotos!</p>
 		</div>
 	</header>
-	<input type="checkbox" id="ckb-menu">
-	<nav class="menu">
-		<ul id="menuPrincipal">
-			<li><label for="ckb-menu">&equiv;</label></li>
-			<li><a class="icon-home" href="index.html">Inicio</a></li>
-			<li><a class="icon-search" href="buscar.html">Buscar</a></li>
-			<li><a class="icon-user" href="registro.html">Registro</a></li>
-			<li id="signin"><a class="icon-login-1" href="login.html">Iniciar sesion</a></li>
-			<li id="signout"><a onclick="cerrarSesion();" class="icon-logout" href="">Cerrar sesi&oacute;n</a></li>
-			<li><a class="icon-book-open" href="nueva-entrada.html">Nueva entrada</a></li>
-		</ul>
-	</nav>
 	
 	<form id="loginForm" onsubmit="return hacerLogin(this);">
 		<!--<fieldset>
@@ -54,18 +44,6 @@
 			<a href="index.html">Cancelar</a>
 		</fieldset>-->
 	</form>
-	
-	
-	<!--<p id="alerta" style="word-break:break-all"></p>-->
-
-	<footer>
-		<nav>
-			<ul>
-				<li><time datetime="2017-02-21">&copy; 2017</time></li>
-				<li></li>
-				<li><a href="acerca.html">Saber m&aacute;s</a></li>
-			</ul>
-		</nav>
-	</footer>
+	<script src="js/codigo01.js" type="text/javascript" ></script>
 </body>
 </html>

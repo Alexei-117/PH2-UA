@@ -1,7 +1,8 @@
 var busquedaActual = "";
 var actualPage = 0;
 var postperpag = 6;
-	
+
+//Mandar la petición de búsqueda y mostrar los resultados
 function loadPagBusqueda(frm){
 	//Coger informacion del form
 	let pag = 0;
@@ -19,8 +20,9 @@ function loadPagBusqueda(frm){
 		finalText = "<h2>Lo sentimos, no se ha podido atender la petici&oacute;n en este momento.</h2>";
 	
 	//adaptar link
+	url+="?"
 	if(titulo!=""){
-		url+="?n="+titulo;
+		url+="n="+titulo;
 		puesto=true;
 	}
 	
@@ -28,7 +30,7 @@ function loadPagBusqueda(frm){
 		if(puesto){
 			url+="&";
 		}
-		url+="?d="+texto;
+		url+="d="+texto;
 		puesto = true;
 	}
 	
@@ -36,7 +38,7 @@ function loadPagBusqueda(frm){
 		if(puesto){
 			url+="&";
 		}
-		url+="?l="+autor;
+		url+="l="+autor;
 		puesto = true;
 	}
 	
@@ -44,7 +46,7 @@ function loadPagBusqueda(frm){
 		if(puesto){
 			url+="&";
 		}
-		url+="?fi="+fempieza;
+		url+="fi="+fempieza;
 		puesto=true;
 	}
 	
@@ -52,7 +54,7 @@ function loadPagBusqueda(frm){
 		if(puesto){
 			url+="&";
 		}
-		url+="?ff="+ffin;
+		url+="ff="+ffin;
 		puesto = true;
 	}
 	
@@ -65,9 +67,9 @@ function loadPagBusqueda(frm){
 		url+="&";
 	}
 		
-	url += "?pag="+pag+"&lpag="+num;
+	url += "pag="+pag+"&lpag="+num;
 	
-	
+	console.log(url);
 	
 	xhr.open('GET',url,true);
 	xhr.send();
@@ -110,6 +112,7 @@ function loadPagBusqueda(frm){
 	return false;
 };
 
+//Cargar la búsqueda en función de los resultados
 function loadPagAux(pag,num){
 	
 	var xhr = new XMLHttpRequest(),
@@ -121,10 +124,11 @@ function loadPagAux(pag,num){
 	url = busquedaActual;
 	
 	if(url != "./rest/entrada/"){
-		url+="&";
+		url +="&";
+		url += "pag="+pag+"&lpag="+num;
+	}else{
+		url += "?pag="+pag+"&lpag="+num;
 	}
-		
-	url += "?pag="+pag+"&lpag="+num;
 	
 	
 	
@@ -167,6 +171,7 @@ function loadPagAux(pag,num){
 	return false;
 };
 
+//Cargar la paginación
 function loadPaginationBuscar(){
 	var bar =  document.querySelector("nav[class=pag]");
 	
@@ -226,15 +231,51 @@ function loadPaginationBuscar(){
 	return false;
 };
 
+//Función para cargar el menú
+function loadMenu(){
+	let header = document.querySelector("header");
+	if(comprobarLogin()){
+		let html = 
+		"<input type='checkbox' id='ckb-menu'>"+
+		"<nav class='menu'>"+
+			"<ul  id='menuPrincipal'>"+
+				"<li><label for='ckb-menu'>&equiv;</label></li>"+
+				"<li><a class='icon-home' href='index.html'>Inicio</a></li>"+
+				"<li><a class='icon-search' href='buscar.html'>Buscar</a></li>"+
+				"<li id='signout'><a onclick='cerrarSesion();' class='icon-logout' href=''>Cerrar sesi&oacute;n</a></li>"+
+				"<li><a class='icon-book-open' href='nueva-entrada.html'>Nueva entrada</a></li>"+
+			"</ul>"+
+		"</nav>";
+		
+		header.innerHTML = header.innerHTML + html;
+		
+	}else{
+		let html = 
+		"<input type='checkbox' id='ckb-menu'>"+
+		"<nav class='menu'>"+
+			"<ul  id='menuPrincipal'>"+
+				"<li><label for='ckb-menu'>&equiv;</label></li>"+
+				"<li><a class='icon-home' href='index.html'>Inicio</a></li>"+
+				"<li><a class='icon-search' href='buscar.html'>Buscar</a></li>"+
+				"<li><a class='icon-user' href='registro.html'>Registro</a></li>"+
+				"<li id='signin'><a class='icon-login-1' href='login.html'>Iniciar sesi&oacute;n</a></li>"+
+			"</ul>"+
+		"</nav>";
+		
+		header.innerHTML = header.innerHTML + html;
+	}
+}
 
+//Función para cargar la fecha correctamente formateada
 function setFooterTime(){
-	var setting =  document.querySelector("footer>nav>ul>li>time");
+	let setting =  document.createElement("footer");
+	
 	//Conseguir el dia de mañana
-	var day = new Date();
-	var dd = day.getDate();
-	var mm = day.getMonth()+1; //January is 0!
+	let day = new Date();
+	let dd = day.getDate();
+	let mm = day.getMonth()+1; //January is 0!
 
-	var yyyy = day.getFullYear();
+	let yyyy = day.getFullYear();
 	if(dd<10){
 		dd='0'+dd;
 	} 
@@ -243,13 +284,37 @@ function setFooterTime(){
 	} 
 	day = yyyy+"-"+mm+"-"+dd;
 	
-	setting.setAttribute("datetime",day );
-	setting.innerHTML ="&copy; "+ yyyy;
+	setting.innerHTML=
+		"<nav>"+
+			"<ul>"+
+				"<li><time datetime="+day+">&copy; "+yyyy+"</time></li>"+
+				"<li></li>"+
+				"<li><a href='acerca.html'>Saber m&aacute;s</a></li>"+
+			"</ul>"+
+		"</nav>";
+	document.body.appendChild(setting);
+}
+//Comprobar el login
+function comprobarLogin(){
+	if(sessionStorage.getItem('status')){
+		return true;
+	}
+	else{
+		
+		return false;
+	}
 }
 
+//Función de cerrar sesión
+function cerrarSesion(){
+	sessionStorage.clear();
+	volverIndex();
+	return false;
+}
 
 //Funciones automaticas en lanzar la pagina
 function loadBuscar(){
+	loadMenu();
 	if(busquedaActual!=""){
 		loadPaginationBuscar();
 	}
